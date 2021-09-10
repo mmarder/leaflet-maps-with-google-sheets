@@ -4,21 +4,26 @@ console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
 const code = urlParams.get('code')
 
-// Define post body for request
-var postBody = "grant_type=authorization_code&client_id=" + clientID + "&code=" + code + "&redirect_uri=https://dw0bl2sj3qyxg.cloudfront.net";
+// Do not try to POST code, if no code is avaiable
+if (code !== null){
 
-//Define variable for response
-var username
+	// Define post body for request
+	var postBody = "grant_type=authorization_code&client_id=" + clientID + "&code=" + code + "&redirect_uri=https://dw0bl2sj3qyxg.cloudfront.net";
 
-let xhr = new XMLHttpRequest();
-xhr.open("POST", coginitoURL)
-//Send the proper header information along with the request
-xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-xhr.send(postBody);
-xhr.onload = function() {
-  	var cognitoResponse = xhr.response;
-	jsonResponse = JSON.parse(cognitoResponse);
-	const decoded = jwt_decode(jsonResponse.id_token);
-	username = (decoded["cognito:username"]);
-	sessionStorage.setItem("username", username);
+	//Define variable for response
+	var username
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", coginitoURL)
+	//Send the proper header information along with the request
+	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhr.send(postBody);
+	xhr.onload = function() {
+  		var cognitoResponse = xhr.response;
+		jsonResponse = JSON.parse(cognitoResponse);
+		const decoded = jwt_decode(jsonResponse.id_token);
+		username = (decoded["cognito:username"]);
+		sessionStorage.setItem("username", username);
+	};
+
 };
