@@ -1,3 +1,12 @@
+  /**
+   * define tab in google sheet by checking, if a user has been defined otherwise load default ("Points").
+   */
+
+var googleTab = sessionStorage.getItem('username');
+if (googleTab == null){
+    googleTab = "Points"
+}
+
 $(window).on('load', function() {
   var documentSettings = {};
   var group2color = {};
@@ -1007,7 +1016,7 @@ $(window).on('load', function() {
               // First, read 3 sheets: Options, Points, and Polylines
               $.when(
                 $.getJSON(apiUrl + spreadsheetId + '/values/Options?key=' + googleApiKey),
-                $.getJSON(apiUrl + spreadsheetId + '/values/Points?key=' + googleApiKey),
+                $.getJSON(apiUrl + spreadsheetId + '/values/' + googleTab + '?key=' + googleApiKey),
                 $.getJSON(apiUrl + spreadsheetId + '/values/Polylines?key=' + googleApiKey)
               ).done(function(options, points, polylines) {
 
