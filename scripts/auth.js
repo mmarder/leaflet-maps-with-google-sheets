@@ -17,7 +17,6 @@ xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 xhr.send(postBody);
 xhr.onload = function() {
   	var cognitoResponse = xhr.response;
-  	console.log(cognitoResponse);
 	jsonResponse = JSON.parse(cognitoResponse);
 	const decoded = jwt_decode(jsonResponse.id_token);
 	username = (decoded["cognito:username"]);
