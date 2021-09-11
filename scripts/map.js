@@ -782,7 +782,7 @@ $(window).on('load', function() {
     var dispTitle = getSetting('_mapTitleDisplay');
 
     if (dispTitle !== 'off') {
-      var usernavigation = '<h6>' + usernamegroup + ' | <a href="' + logoutURI + '">logout</a></h5>';
+      var usernavigation = '<nobr> ' + usernamegroup + ' | <a href="' + logoutURI + '">logout</a></nobr>';
       var title = '<h3 class="pointer">' + getSetting('_mapTitle') + '</h3>';
       var subtitle = '<h5>' + getSetting('_mapSubtitle') + '</h5>';
 
