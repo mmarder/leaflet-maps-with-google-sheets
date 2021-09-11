@@ -28,11 +28,9 @@ h6 {
   font-size: 1.2em;
 }
 
-.leaflet-touch .leaflet-bar .link a {
-	width: 100px;
-	height: 30px;
-	line-height: 30px;
-	}
+a {
+    width: 100px;
+}
 
 .intro-popup .leaflet-popup-tip-container {
   width: 0;
