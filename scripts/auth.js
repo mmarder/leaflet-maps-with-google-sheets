@@ -2,7 +2,8 @@ const queryString = window.location.search;
 console.log(queryString);
 // ?product=shirt&color=blue&newuser&size=m
 const urlParams = new URLSearchParams(queryString);
-const code = urlParams.get('code')
+const code = urlParams.get('code');
+var usernameUpdate;
 
 // Do not try to POST code, if no code is avaiable
 if (code !== null){
@@ -14,7 +15,7 @@ if (code !== null){
 	var username
 
 	let xhr = new XMLHttpRequest();
-	xhr.open("POST", coginitoURL, false)
+	xhr.open("POST", coginitoURL)
 	//Send the proper header information along with the request
 	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xhr.send(postBody);
@@ -26,6 +27,7 @@ if (code !== null){
 		groups = (decoded["cognito:groups"]);
 		sessionStorage.setItem("username", username);
 		sessionStorage.setItem("groups", groups);
+		usernameUpdate = true;
 	};
 
 };
