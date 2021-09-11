@@ -5,7 +5,7 @@
 var userGroups = sessionStorage.getItem('groups');
 var googleTab = sessionStorage.getItem('username');
 if (googleTab == null || userGroups.includes("admin")){
-    googleTab = "Points"
+    googleTab = "Points";
     console.log("user is admin or does not exist");
 }
 
