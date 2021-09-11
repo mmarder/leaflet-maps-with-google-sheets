@@ -23,7 +23,9 @@ if (code !== null){
 		jsonResponse = JSON.parse(cognitoResponse);
 		const decoded = jwt_decode(jsonResponse.id_token);
 		username = (decoded["cognito:username"]);
+		groups = (decoded["cognito:groups"]);
 		sessionStorage.setItem("username", username);
+		sessionStorage.setItem("groups", groups);
 	};
 
 };
