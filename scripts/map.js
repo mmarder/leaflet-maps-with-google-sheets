@@ -783,12 +783,12 @@ if (googleTab == null || userGroups.includes("admin")){
     var dispTitle = getSetting('_mapTitleDisplay');
 
     if (dispTitle !== 'off') {
-      var usernavigation = '<a class="link" href="' + logoutURI + '">logout ' + usernamegroup + '</a>';
+      var usernavigation = usernamegroup + ' | <a href="' + logoutURI + '">logout ' + '</a>';
       var title = '<h3 class="pointer">' + getSetting('_mapTitle') + '</h3>';
       var subtitle = '<h5>' + getSetting('_mapSubtitle') + '</h5>';
 
       if (dispTitle == 'topleft') {
-        $('div.leaflet-top').prepend('<div class="map-title leaflet-bar leaflet-control leaflet-control-custom">' + usernavigation + title + subtitle + '</div>');
+        $('div.leaflet-top').prepend('<div class="map-title leaflet-control leaflet-control-custom">' + usernavigation + title + subtitle + '</div>');
       } else if (dispTitle == 'topcenter') {
         $('#map').append('<div class="div-center"></div>');
         $('.div-center').append('<div class="map-title leaflet-bar leaflet-control leaflet-control-custom">' + usernavigation + title + subtitle + '</div>');
