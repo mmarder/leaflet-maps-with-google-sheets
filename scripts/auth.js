@@ -14,7 +14,7 @@ if (code !== null){
 	var username
 
 	let xhr = new XMLHttpRequest();
-	xhr.open("POST", coginitoURL)
+	xhr.open("POST", coginitoURL, false)
 	//Send the proper header information along with the request
 	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xhr.send(postBody);
