@@ -1,10 +1,12 @@
   /**
-   * define tab in google sheet by checking, if a user has been defined otherwise load default ("Points").
+   * define tab in google sheet by checking, if a user has been defined otherwise load default ("Points"). Check for admin rights.
    */
 
+var userGroups = sessionStorage.getItem('groups');
 var googleTab = sessionStorage.getItem('username');
-if (googleTab == null){
+if (googleTab == null || userGroups.includes("admin")){
     googleTab = "Points"
+    console.log("user is admin or does not exist");
 }
 
 $(window).on('load', function() {
