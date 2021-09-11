@@ -1,14 +1,3 @@
-  /**
-   * define tab in google sheet by checking, if a user has been defined otherwise load default ("Points"). Check for admin rights.
-   */
-
-var userGroups = sessionStorage.getItem('groups');
-var googleTab = sessionStorage.getItem('username');
-if (googleTab == null || userGroups.includes("admin")){
-    googleTab = "Points";
-    console.log("user is admin or does not exist");
-}
-
 $(window).on('load', function() {
   var documentSettings = {};
   var group2color = {};
@@ -768,9 +757,21 @@ $(window).on('load', function() {
     }
   }
 
+    /**
+   * define tab in google sheet by checking, if a user has been defined otherwise load default ("Points"). Check for admin rights.
+   */
+
+var userGroups = sessionStorage.getItem('groups');
+var googleTab = sessionStorage.getItem('username');
+if (googleTab == null || userGroups.includes("admin")){
+    googleTab = "Points";
+    console.log("user is admin or does not exist");
+    }
+  
   /**
    * Adds title and subtitle from the spreadsheet to the map
    */
+  
   
   var logoutURI = "https://kmmap.auth.eu-central-1.amazoncognito.com/logout?response_type=code&client_id=1729i19uthi8ejsglib8rdbrs7&redirect_uri=https://dw0bl2sj3qyxg.cloudfront.net&state=STATE&scope=openid+profile+aws.cognito.signin.user.admin";
   var usernamegroup = sessionStorage.getItem('username');
