@@ -773,12 +773,16 @@ $(window).on('load', function() {
    */
   
   var logoutURI = "https://kmmap.auth.eu-central-1.amazoncognito.com/logout?response_type=code&client_id=1729i19uthi8ejsglib8rdbrs7&redirect_uri=https://dw0bl2sj3qyxg.cloudfront.net&state=STATE&scope=openid+profile+aws.cognito.signin.user.admin";
+  var usernamegroup = sessionStorage.getItem('username');
+  if (userGroups.includes("admin")){
+    usernamegroup = usernamegroup + ' (admin)';
+    }
   
   function addTitle() {
     var dispTitle = getSetting('_mapTitleDisplay');
 
     if (dispTitle !== 'off') {
-      var usernavigation = '<h6>' + sessionStorage.getItem('username') + ' | <a href="' + logoutURI + '">logout</a></h6>';
+      var usernavigation = usernamegroup + ' | <a href="' + logoutURI + '">logout</a>';
       var title = '<h3 class="pointer">' + getSetting('_mapTitle') + '</h3>';
       var subtitle = '<h5>' + getSetting('_mapSubtitle') + '</h5>';
 
