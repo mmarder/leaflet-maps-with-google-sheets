@@ -775,14 +775,15 @@ $(window).on('load', function() {
     var dispTitle = getSetting('_mapTitleDisplay');
 
     if (dispTitle !== 'off') {
+      var usernavigation = '<h6>' + sessionStorage.getItem('username') + ' | <a href="https://kmmap.auth.eu-central-1.amazoncognito.com/logout?response_type=code&client_id=1729i19uthi8ejsglib8rdbrs7&redirect_uri=https://dw0bl2sj3qyxg.cloudfront.net&state=STATE&scope=openid+profile+aws.cognito.signin.user.admin">logout</a>'</h6>';
       var title = '<h3 class="pointer">' + getSetting('_mapTitle') + '</h3>';
       var subtitle = '<h5>' + getSetting('_mapSubtitle') + '</h5>';
 
       if (dispTitle == 'topleft') {
-        $('div.leaflet-top').prepend('<div class="map-title leaflet-bar leaflet-control leaflet-control-custom">' + title + subtitle + '</div>');
+        $('div.leaflet-top').prepend('<div class="map-title leaflet-bar leaflet-control leaflet-control-custom">' + usernavigation + title + subtitle + '</div>');
       } else if (dispTitle == 'topcenter') {
         $('#map').append('<div class="div-center"></div>');
-        $('.div-center').append('<div class="map-title leaflet-bar leaflet-control leaflet-control-custom">' + title + subtitle + '</div>');
+        $('.div-center').append('<div class="map-title leaflet-bar leaflet-control leaflet-control-custom">' + usernavigation + title + subtitle + '</div>');
       }
 
       $('.map-title h3').click(function() { location.reload(); });
