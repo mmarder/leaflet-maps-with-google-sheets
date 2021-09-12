@@ -777,7 +777,10 @@ if (googleTab == null || userGroups.includes("admin")){
   var usernamegroup = sessionStorage.getItem('username');
   if (userGroups !== null && userGroups.includes("admin")){
     usernamegroup = usernamegroup + ' (admin)';
-    }
+    };
+  if (usernamegroup = null){
+    usernamegroup = "direct access";
+    };
   
   function addTitle() {
     var dispTitle = getSetting('_mapTitleDisplay');
