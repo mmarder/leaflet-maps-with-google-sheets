@@ -778,7 +778,7 @@ if (googleTab == null || userGroups.includes("admin")){
   if (userGroups !== null && userGroups.includes("admin")){
     usernamegroup = usernamegroup + ' (admin)';
     };
-  if (usernamegroup = null){
+  if (usernamegroup == null){
     usernamegroup = "direct access";
     };
   
