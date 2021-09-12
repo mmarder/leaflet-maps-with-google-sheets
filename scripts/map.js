@@ -775,7 +775,7 @@ if (googleTab == null || userGroups.includes("admin")){
   
   var logoutURI = "https://kmmap.auth.eu-central-1.amazoncognito.com/logout?response_type=code&client_id=1729i19uthi8ejsglib8rdbrs7&redirect_uri=https://dw0bl2sj3qyxg.cloudfront.net&state=STATE&scope=openid+profile+aws.cognito.signin.user.admin";
   var usernamegroup = sessionStorage.getItem('username');
-  if (userGroups.includes("admin")){
+  if (userGroups !== null && userGroups.includes("admin")){
     usernamegroup = usernamegroup + ' (admin)';
     }
   
